@@ -32,22 +32,40 @@ a = list(set(a))
 print(a)
 
 #Remove elements larger than 10
-for i in range(len(a)):
+##for i in range(len(a)):
+##    print("++++++++++++++++++++++++++++++++++")
+##    print("i = " + str(i) + " ||| len(a) = " + str(len(a)) + " ||| elem = " + str(a[i]))
+##    print(a)
+##    if int(a[i]) >= 10:
+##        print("The element " + str(a[i]) + " has been removed.")
+##        a.remove(a[i])
+##        print(a)
+##        print("Current i value = " + str(i))
+##        i -= 1
+##        print("Depricated i value = " + str(i))
+##        if i == len(a):
+##            break;
+##    print("\n=\n=")
+
+#Remove elements larger than 10
+#Using while instead of for loop because for loop has restricted control on index iterablei = 0
+i = 0
+while i < len(a):
     print("++++++++++++++++++++++++++++++++++")
     print("i = " + str(i) + " ||| len(a) = " + str(len(a)) + " ||| elem = " + str(a[i]))
     print(a)
-    if int(a[i]) >= 10:
-        print("The element " + str(a[i]) + " has been removed.")
+    if int(a[i]) > 10:
+        print(str(a[i]) + " has been removed.")
         a.remove(a[i])
         print(a)
         print("Current i value = " + str(i))
-        --i
+        i -= 1
         print("Depricated i value = " + str(i))
-        if i == len(a):
-            break;
-    print("\n=\n=")
+    i += 1
+    print(str(i))
 
-#My own extra:reorder elements in ascending value AFTER LIST HAS BEEN PRUNED OF LARGER VALUES
+
+#My own extra: reorder elements in ascending value AFTER LIST HAS BEEN PRUNED OF LARGER VALUES FOR EFFICIENCY
 #create a for loop that iterates through each element, comparing it to first element in the list
 for i in range(len(a)):
     print("Outer loop: INDEX = " + str(i) + " ||| ELEM = " + str(a[i]))
