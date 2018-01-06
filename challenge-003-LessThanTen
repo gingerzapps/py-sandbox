@@ -14,15 +14,15 @@
 a = []
 looping = 'true'
 while looping == 'true':
-    apnd = input("Give me an integer, or enter 'N/n' to complete list:  ")
-    if (len(a) < 2  and (apnd == "" or (apnd == "N" or apnd == "n"))):
+    newElem = input("Give me an integer, or enter 'N/n' to complete list:  ")
+    if (len(a) < 2  and (newElem == "" or (newElem == "N" or newElem == "n"))):
         print("You must add at least two integers to the list. Please try again.")
-    elif apnd == "N" or apnd == "n":
+    elif newElem == "N" or newElem == "n":
         looping = 'false'
-    elif apnd == "":
+    elif newElem == "":
         print("Oops, try again. Don't enter a blank line.")
     else:
-        a.append(int(apnd))
+        a.append(int(newElem))
 print (a)
 
 #Check for duplicates, add them to a new list (use "set(your_list)" to remove all duplicates from list.)
