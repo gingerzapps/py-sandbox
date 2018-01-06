@@ -1,0 +1,16 @@
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+
+class Simple(App):
+    def build(self):
+        return WidgetScreen()
+
+def WidgetScreen():
+    layout = BoxLayout()
+    btn = Button(text = "Hello Bishh")
+    layout.add_widget(btn)
+    return layout
+
+if __name__ == "__main__":
+    Simple().run()
