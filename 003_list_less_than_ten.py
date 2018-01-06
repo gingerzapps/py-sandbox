@@ -8,13 +8,13 @@
 #            write that in one line of Python
 #            Ask user for a  number, return all elements from original list that are smaller than that number
 
-
+##Preset list for debugging, coment out user-created-list-block
 ##a = [10, 6, 15, 64, 88, 32, 22, 8, 9, 44, 7, 3, 5, 1, 3, 15, 64]
 
 a = []
 looping = 'true'
 while looping == 'true':
-    apnd = input("Give me an integer, or enter 'N/n' to complete list:")
+    apnd = input("Give me an integer, or enter 'N/n' to complete list:  ")
     if (len(a) < 2  and (apnd == "" or (apnd == "N" or apnd == "n"))):
         print("You must add at least two integers to the list. Please try again.")
     elif apnd == "N" or apnd == "n":
@@ -25,26 +25,17 @@ while looping == 'true':
         a.append(int(apnd))
 print (a)
 
-#Check for duplicates, add them to a new list (use "set(your_list)" to remove all duplicates from list. Good for relatively short lists)
-print("I will make a set out of the following list: ")
-print(a)
+#Check for duplicates, add them to a new list (use "set(your_list)" to remove all duplicates from list.)
 a = list(set(a))
-print(a)
 
 #Remove elements larger than 10
-#Using while instead of for loop because for loop has restricted control on index iterablei = 0
+#Using while instead of for loop because for loop has restricted control on index iterable
 i = 0
+userThreshold = int(input("Give me another integer. I will remove all elements in your list greater than the given number:  "))
 while i < len(a):
-    print("++++++++++++++++++++++++++++++++++")
-    print("i = " + str(i) + " ||| len(a) = " + str(len(a)) + " ||| elem = " + str(a[i]))
-    print(a)
-    if int(a[i]) > 10:
-        print(str(a[i]) + " has been removed.")
+    if int(a[i]) > userThreshold:
         a.remove(a[i])
-        print(a)
-        print("Current i value = " + str(i))
         i -= 1
-        print("Depricated i value = " + str(i))
     i += 1
     print(str(i))
 
