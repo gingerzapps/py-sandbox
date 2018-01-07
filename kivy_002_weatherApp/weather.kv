@@ -3,6 +3,7 @@ AddLocationForm:
 <AddLocationForm>: 
   orientation: "vertical"
   search_input: search_box #add id from TextInput to property defined in AddLocationForm() in python file
+  search_results: search_results_list 
   BoxLayout:
     height: "40dp"
     size_hint_y: None
@@ -17,4 +18,6 @@ AddLocationForm:
       text: "Current Location"
       size_hint_x: 25
   ListView:
-    item_strings: ["Palo Alto, Mx", "Palo Alto, US"]
+    id: search_results_list
+    item_strings: []
+    
