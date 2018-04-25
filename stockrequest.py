@@ -30,15 +30,6 @@ wanna_be_keys = ["open", "high",
 #iterating through json response for debugging
 #eventually use this for assigning values to symbol[]
 
-#print("\n\nresponse.items()\n================")
-#print(response.items())
-people = { "Meta Data" : {'name': 'John', 'age': '27', 'sex': 'Male'},
-          "Monthly Adjusted Time Series" : {'name': 'Marie', 'age': '22', 'sex': 'Female'}}
-print(people)
-print(people[keys[1]]['name'])
-print(people[keys[1]]['age'])
-print(people[keys[1]]['sex'])
-
 
 print("\n\n\n\n=======================\n=======================\n\n")
 def listKeys(dic):
@@ -71,9 +62,6 @@ list_response = listKeys(response)
 for item in list_response:
     print("{}\n".format(item))
 
-print(list_response)
-print()
-print()
 symbol = [response[keys[0]][list_response[0]], response[keys[0]][list_response[1]]]
 print(symbol)
 
@@ -92,7 +80,7 @@ print(symbol)
 
 #DIV HISTORY REQUIRES ANOTHER RECURSIVE METHOD. APPEND TO END OF s_dic DICTIONARY
 
-
+#REPLACE s_dic WITH ANOTHER NAME... "sym" maybe
 s_dic = {  "symbol":    response[keys[0]][list_response[0]],    #index[0]
                 "updated":  response[keys[0]][list_response[1]],    #index[1]
                 "last_div": response[keys[1]][list_response[2]]["7. dividend amount"],
@@ -105,19 +93,21 @@ s_dic = {  "symbol":    response[keys[0]][list_response[0]],    #index[0]
                 "sus_ratio":  'xxx', #need sus_count from s_dic[div_history[]] and divide by years_payout
                 "ytr": 'xxx', #i believe it was price / annual_div to find how many years until making revenue
                 "years_payout": 'xxx', # how many years paying. find from diff between dates on first and last entry in list_response
-                "div_history": { "InfoDateHere" :  { "div" : 'divAmountHere',
+                "div_history": { "LastDateHere" :  { "div" : 'divAmountHere',
                                                                         "cut":  "if less than last div and not zero, true",
                                                                         "change_value":  "abs(last_div - div)",
                                                                         "change_percent": "div / last_div",
                                                                         "sus": "if div == 0 and last div != 0, true",
                                                                         "raise": "if greater than last div, true",
-
+                                                                        }.
+                                     "SecondDateHere" :  { "div" : 'divAmountHere',
+                                                                        "cut":  "if less than last div and not zero, true",
+                                                                        "change_value":  "abs(last_div - div)",
+                                                                        "change_percent": "div / last_div",
+                                                                        "sus": "if div == 0 and last div != 0, true",
+                                                                        "raise": "if greater than last div, true",
                                                                         }
-                                        
-
                                         }
-
-
            }
 
 print("\n\n\n=====\n\n\n=====\n\n\n{}".format(s_dic))
